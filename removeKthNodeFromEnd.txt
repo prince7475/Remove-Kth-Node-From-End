@@ -1,0 +1,50 @@
+Write a function that remove the kth node from the end of the linked list
+
+class LinkedList {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+function removeKthNodeFromEnd(head,k){
+let right = head
+let i = 0
+while(i < k){
+  right = right.next
+  i++
+}
+
+if(right === null){
+  head.value = head.next.value
+  head.next = head.next.next
+  return
+}
+
+let prev = head
+while(right.next !== null){
+  prev = prev.next
+  right = right.next
+}
+
+prev.next = prev.next.next
+}
+
+let right = head
+let i = 0
+while(i < k){
+  right = right.next
+}
+
+if(right === null){
+  head = head.next
+  return
+}
+let prev = head
+while(right.next !== null){
+  prev = prev.next
+  right = right.next
+}
+
+prev.next = prev.next.next
+return
